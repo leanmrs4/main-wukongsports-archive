@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悟空体育 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f6f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 1.6rem 1rem;
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* hero 区 */
+    .hero {
+      background: #f8f2e6;
+      border-radius: 28px;
+      padding: 2.4rem 1.8rem 2rem;
+      margin-bottom: 2.4rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #efe6d8;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #3d352e;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #6b5f54;
+      background: #ede5d9;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 400;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero p {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: #4c443d;
+    }
+
+    .hero .highlight {
+      background: #ffe6c7;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 450;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1.8rem 1.6rem;
+      margin-bottom: 1.8rem;
+      border: 1px solid #ece3d7;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #352f2a;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #e4d9cb;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0.3rem;
+    }
+
+    .card li {
+      padding: 0.4rem 0 0.4rem 1.5rem;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #b09882;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin-top: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 引用框 / 提示框 */
+    .notice-box {
+      background: #f1ede6;
+      border-left: 5px solid #b59a80;
+      padding: 1.2rem 1.4rem;
+      border-radius: 14px;
+      margin: 1.2rem 0 1.8rem;
+      color: #3f3730;
+      font-size: 0.98rem;
+    }
+
+    .notice-box strong {
+      color: #2f2822;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      color: #3e352d;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item .a {
+      color: #5b4f45;
+      padding-left: 0.8rem;
+      border-left: 2px solid #dacfbf;
+      padding-top: 0.1rem;
+      padding-bottom: 0.1rem;
+      font-size: 0.96rem;
+    }
+
+    .bottom-links {
+      background: #f2ebe1;
+      border-radius: 40px;
+      padding: 1.2rem 1.6rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #49413a;
+      margin-top: 1.4rem;
+      border: 1px solid #e1d5c6;
+    }
+
+    .bottom-links a {
+      color: #3f352c;
+      text-decoration: underline;
+      text-decoration-color: #bdab98;
+      text-underline-offset: 4px;
+      font-weight: 450;
+    }
+
+    .bottom-links a:hover {
+      background: #dacfc2;
+      text-decoration: none;
+      padding: 0 0.2rem;
+      border-radius: 6px;
+    }
+
+    .inline-link {
+      color: #3f352c;
+      text-decoration: underline;
+      text-decoration-color: #bdab98;
+      text-underline-offset: 3px;
+      font-weight: 450;
+    }
+
+    .inline-link:hover {
+      background: #ede3d6;
+      text-decoration: none;
+      padding: 0 0.1rem;
+      border-radius: 4px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e1d6c8;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+      body {
+        padding: 0.9rem 0.7rem;
+      }
+    }
+
+    .tagline {
+      text-align: center;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.9rem;
+      color: #776b5f;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <div class="sub">简明指南 · 访问提醒</div>
+    <h1>悟空体育 &nbsp;—&nbsp; 日常使用笔记</h1>
+    <p>
+      很多朋友习惯用手机或电脑快速打开<span class="highlight">悟空体育</span>，但在不同设备、
+      网络环境下，访问体验会有差别。这篇页面整理了一些基础的指引与常见提醒，
+      帮你更顺畅地使用。
+    </p>
+  </div>
+
+  <!-- 优势区：为什么选它 (简明角度) -->
+  <div class="card">
+    <h2>几个让生活更简单的特点</h2>
+    <ul>
+      <li><strong>响应快</strong> —— 页面加载轻量，不拖沓，不浪费等待时间。</li>
+      <li><strong>界面干净</strong> —— 内容区域分明，没有眼花缭乱的弹窗干扰。</li>
+      <li><strong>跨设备友好</strong> —— 手机、平板、笔记本都能正常排版，字体自动适配。</li>
+      <li><strong>更新频率稳定</strong> —— 信息与功能模块会定期迭代，不会突然大改操作习惯。</li>
+    </ul>
+  </div>
+
+  <!-- 说明区 + 提示框 -->
+  <div class="card">
+    <h2>使用之前，值得留意的事</h2>
+    <p>不论你是第一次打开，还是老用户换设备，下面几个细节能避免很多小麻烦：</p>
+
+    <div class="notice-box">
+      <strong>🔔 访问提醒</strong><br>
+      推荐使用最新版 Chrome、Safari 或 Edge 浏览器，并保持系统时间正确。
+      如果遇到白屏或加载缓慢，可以先检查网络连接，或尝试关闭 VPN 后再试试。
+    </div>
+
+    <p>
+      另外，如果是在公司、学校等公共网络下使用，部分链接可能会受到限制。
+      这时候换个网络环境通常就能解决。你完全可以把 <a href="https://main-wukongsports.com" class="inline-link">悟空体育</a>
+      添加到浏览器书签，之后每次打开都更方便。
+    </p>
+
+    <p>
+      有些朋友会问是否需要注册账号才能浏览 —— 实际上大部分内容都不需要登录，
+      只有个别功能（比如保存偏好设置）才需要简单注册。放心，注册流程很常规，
+      不会索要多余信息。
+    </p>
+  </div>
+
+  <!-- 场景：什么时候用到它 (替换原本的“说明区第二部分”) -->
+  <div class="card">
+    <h2>日常生活中，哪些场景会遇到</h2>
+    <ul>
+      <li>想快速查某个运动项目的基础规则或术语。</li>
+      <li>朋友聊起体育话题，你偷偷打开补补背景知识。</li>
+      <li>下班后放松，随便浏览一些运动相关的趣味内容。</li>
+      <li>家长帮孩子找体育课参考资料，顺手了解活动分类。</li>
+    </ul>
+    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #5a4f45;">
+      不用给自己压力，像翻一本杂志一样就好。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 (三个问题，保持简短) -->
+  <div class="card">
+    <h2>常见疑问 · 短回答</h2>
+
+    <div class="faq-item">
+      <div class="q">▸ 页面打不开 / 一直在加载？</div>
+      <div class="a">先刷新一次。如果还是不行，检查 Wi-Fi 或切换移动网络试试。偶尔也可能是临时维护，稍后再访问就好。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">▸ 需要下载 App 吗？</div>
+      <div class="a">不用。浏览器直接打开就能用，没有强制下载。如果你喜欢用 App 体验，也可以在应用商店搜一下，但网页版功能完全够用。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">▸ 内容每天更新吗？</div>
+      <div class="a">基本保持工作日更新节奏，周末偶尔有特别内容。不会一天推送几十条，比较安静。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接区 -->
+  <div class="bottom-links">
+    <span>相关资源 · </span>
+    <a href="https://main-wukongsports.com">悟空体育</a>
+    <span style="margin:0 0.4rem; color:#b3a390;">—</span>
+    <span style="color:#5f5348;">条款与隐私</span>
+    <span style="margin:0 0.3rem;">·</span>
+    <span style="color:#5f5348;">帮助中心</span>
+  </div>
+
+  <hr>
+  <div class="tagline">
+    保持轻松 · 简明参考
+  </div>
+</div>
+</body>
+</html>
