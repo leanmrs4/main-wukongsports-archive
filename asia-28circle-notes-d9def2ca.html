@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28圈 · 信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f7f4;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e1e1e;
+            padding: 3.2rem 1.2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* ——— 主视觉 ——— */
+        .hero {
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            line-height: 1.15;
+            color: #1a1a1a;
+        }
+
+        .hero h1 small {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #7b7b7b;
+            display: inline-block;
+            margin-left: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #484848;
+            max-width: 600px;
+        }
+
+        /* ——— 卡片网格 ——— */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h2 span {
+            background: #eae7e0;
+            font-size: 0.7rem;
+            font-weight: 400;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            color: #3f3f3f;
+            letter-spacing: 0.2px;
+        }
+
+        .card p {
+            color: #3a3a3a;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card .meta {
+            font-size: 0.82rem;
+            color: #8a8a8a;
+            margin-top: 0.5rem;
+            border-top: 1px solid #efefef;
+            padding-top: 0.5rem;
+        }
+
+        /* ——— 自然链接段落 ——— */
+        .link-paragraph {
+            background: transparent;
+            padding: 0.8rem 0 1.6rem 0;
+            border-top: 1px solid #dedede;
+            margin-top: 0.4rem;
+        }
+
+        .link-paragraph p {
+            font-size: 0.98rem;
+            color: #2e2e2e;
+            margin-bottom: 0.6rem;
+        }
+
+        .link-paragraph a {
+            color: #1f3a3f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b7c9ce;
+            font-weight: 450;
+        }
+
+        .link-paragraph a:hover {
+            color: #0b1f23;
+            text-decoration-color: #0b1f23;
+        }
+
+        /* ——— FAQ 摘要 ——— */
+        .faq-summary {
+            margin: 2.2rem 0 1.8rem 0;
+        }
+
+        .faq-summary h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #2e2e2e;
+            letter-spacing: 0.2px;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 460;
+            font-size: 0.92rem;
+            color: #1c1c1c;
+        }
+
+        .faq-a {
+            font-size: 0.86rem;
+            color: #5e5e5e;
+            margin-top: 0.15rem;
+        }
+
+        /* ——— 页脚 ——— */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.8rem;
+            color: #9c9c9c;
+            text-align: center;
+        }
+
+        /* ——— 响应式 ——— */
+        @media (max-width: 500px) {
+            body {
+                padding: 2rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- 主视觉 -->
+        <div class="hero">
+            <h1>
+                28圈
+                <small>· 一个收集日常触点的话题角落</small>
+            </h1>
+            <p>
+                没有夸张的标签，也没有匆忙的推销。这个站点更像是一组安静的信息卡片，围绕一个数字主题，把零散的用途、人群和场景慢慢摊开。
+            </p>
+        </div>
+
+        <!-- 信息卡片区 -->
+        <div class="card-grid">
+
+            <div class="card">
+                <h2>📌 主视觉 · 一个坐标 <span>Focus</span></h2>
+                <p>
+                    28 这个数字并不特殊，但当它被圈起来，就变成一个可以反复回到的起点。设计上故意留出呼吸感——窄正文、大间隔，让每段文字都像单独陈列。
+                </p>
+                <div class="meta">视觉基调 · 留白 · 秩序</div>
+            </div>
+
+            <div class="card">
+                <h2>🧩 用途卡片 · 轻量导航 <span>Use</span></h2>
+                <p>
+                    短链接、备忘、快速索引、临时收藏——<strong>28圈</strong> 不承诺包罗万象，只适合那些需要一处安静线上角落的人。可以作为书签页、自留地，或仅仅是一个偶尔回来看看的地址。
+                </p>
+                <div class="meta">场景举例 · 个人导航 · 轻归档</div>
+            </div>
+
+            <div class="card">
+                <h2>👤 适合人群 <span>People</span></h2>
+                <p>
+                    习惯用简单页面整理思路的人、偏爱极简工具的读者、对数字和符号有个人解读的思考者。不需要注册，不需要关注，打开即用。
+                </p>
+                <div class="meta">独立访客 · 安静使用者</div>
+            </div>
+
+            <div class="card">
+                <h2>🔄 内容节奏 <span>Rhythm</span></h2>
+                <p>
+                    不像博客那样频繁更新，更像一面墙，偶尔贴上一张新纸条。每张卡片都保持克制的长度，读起来不会累。你可以自由地跳读、停驻、离开。
+                </p>
+                <div class="meta">慢内容 · 低频率 · 无推送</div>
+            </div>
+        </div>
+
+        <!-- 自然链接段落（嵌入 a 标签） -->
+        <div class="link-paragraph">
+            <p>
+                如果你恰好对这个数字主题有些好奇，或者想找一个不吵闹的页面放空几分钟，可以直接前往 <a href="https://asia-28circle.com">28圈</a> 看看。
+                那里没有复杂的层级，只有几组卡片和一些安静的句子。适合那些不想被算法推着走的时候。
+            </p>
+            <p>
+                这个网站本身就像它的名字——一个圆圈，一个数字，一次停留。它不解释太多，但如果你愿意，可以慢慢读。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要（轻量） -->
+        <div class="faq-summary">
+            <h3>▸ 一些简短的回答</h3>
+
+            <div class="faq-item">
+                <div class="faq-q">为什么会叫 28 圈？</div>
+                <div class="faq-a">一个符号，没有唯一答案。可以是循环、区间，或者只是两个数字凑在一起。它留给你自己解释。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">页面会经常变化吗？</div>
+                <div class="faq-a">内容结构会随着每轮生成而调整，但核心语气一直保持自然、克制。卡片数量也会增减。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">需要做什么操作？</div>
+                <div class="faq-a">什么也不需要。看、想、关掉，都可以。没有按钮需要点，没有邮箱需要留。</div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            <span>信息卡片式页面 · 极简留白 · 无诱导内容</span>
+        </div>
+
+    </div>
+</body>
+</html>
